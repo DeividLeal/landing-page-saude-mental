@@ -1,4 +1,3 @@
-// components/Apoio.tsx
 "use client";
 import { useEffect, useState } from "react";
 import { LifebuoyIcon } from "@heroicons/react/24/solid"; // npm install @heroicons/react

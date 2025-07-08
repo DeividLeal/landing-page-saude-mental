@@ -7,7 +7,7 @@ interface DicaAutocuidado {
 }
 
 const Autocuidado = () => {
-  const [dicas, setDicas] = useState<string[]>([]);
+  const [dicas, setDicas] = useState<DicaAutocuidado[]>([]);
   const [erro, setErro] = useState<string | null>(null);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -23,14 +23,14 @@ const Autocuidado = () => {
         const data = await res.json();
         if (Array.isArray(data)) {
           setDicas(
-            data.map((item: any) =>
-              typeof item === "string" ? item : item.dica
+            data.map((item: string | DicaAutocuidado) =>
+              typeof item === "string" ? { dica: item } : item
             )
           );
         } else if (Array.isArray(data.praticas)) {
           setDicas(
-            data.praticas.map((item: any) =>
-              typeof item === "string" ? item : item.dica
+            data.praticas.map((item: DicaAutocuidado | string) =>
+              typeof item === "string" ? { dica: item } : item
             )
           );
         } else {
@@ -77,7 +77,9 @@ const Autocuidado = () => {
               <div className="flex justify-center mb-4">
                 <HeartIcon className="h-8 w-8 text-pink-400 group-hover:scale-125 transition-transform duration-300" />
               </div>
-              <p className="mt-2 text-lg text-gray-700 font-medium">{dica}</p>
+              <p className="mt-2 text-lg text-gray-700 font-medium">
+                {dica.dica}
+              </p>
               <span className="absolute top-4 right-4 text-xs text-blue-200 group-hover:text-pink-400 transition-colors select-none">
                 #{idx + 1}
               </span>
