@@ -1,4 +1,3 @@
-// components/Header.tsx
 "use client"; // Necessário pois usamos State (para o menu) e eventos de clique.
 
 import { useState } from "react";

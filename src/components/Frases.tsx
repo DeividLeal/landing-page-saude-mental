@@ -1,4 +1,3 @@
-// components/Frases.tsx
 "use client";
 import { useEffect, useState } from "react";
 import { SparklesIcon } from "@heroicons/react/24/solid"; // npm install @heroicons/react
