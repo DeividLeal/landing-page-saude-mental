@@ -1,6 +1,6 @@
 # Mente Sã: Landing Page de Apoio à Saúde Mental
 
-![Capa do Projeto](https://via.placeholder.com/1200x600.png?text=Capa+do+Projeto+Mente+Sã)
+![Capa do Projeto](./public/capa-do-projeto.png)
 
 ## 📖 Sobre o Projeto
 
@@ -94,13 +94,13 @@ npm run dev
 
 ## 📸 Screenshots do Projeto
 
-|                                         Seção de Autocuidado                                          |                                       Seção de Frases                                       |
-| :---------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
-| ![Screenshot da seção de autocuidado](https://via.placeholder.com/400x300.png?text=Seção+Autocuidado) | ![Screenshot da seção de frases](https://via.placeholder.com/400x300.png?text=Seção+Frases) |
+|                      Seção de Autocuidado                       |                    Seção de Frases                    |
+| :-------------------------------------------------------------: | :---------------------------------------------------: |
+| ![Screenshot da seção de autocuidado](./public/autocuidado.png) | ![Screenshot da seção de frases](./public/frases.png) |
 
-|                                      Seção de Apoio                                       |                                         Layout Responsivo                                          |
-| :---------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
-| ![Screenshot da seção de apoio](https://via.placeholder.com/400x300.png?text=Seção+Apoio) | ![Screenshot do layout responsivo](https://via.placeholder.com/400x300.png?text=Layout+Responsivo) |
+|                   Seção de Apoio                    |                            Layout Responsivo                             |
+| :-------------------------------------------------: | :----------------------------------------------------------------------: |
+| ![Screenshot da seção de apoio](./public/apoio.png) | ![Screenshot do layout responsivo](./public/iPhone-13-PRO-localhost.png) |
 
 ---
 
