@@ -1,4 +1,4 @@
-"use client"; // Necessário pois usamos State (para o menu) e eventos de clique.
+"use client";
 
 import { useState } from "react";
 

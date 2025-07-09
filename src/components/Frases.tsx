@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { SparklesIcon } from "@heroicons/react/24/solid"; // npm install @heroicons/react
+import { SparklesIcon } from "@heroicons/react/24/solid";
 
 interface Frase {
   autor: string;
@@ -8,38 +8,40 @@ interface Frase {
 }
 
 const Frases = () => {
-  const [frases, setFrases] = useState<Frase[]>([]);
   const [fraseAtual, setFraseAtual] = useState<Frase | null>(null);
   const [loading, setLoading] = useState(true);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  useEffect(() => {
-    fetch(`${apiUrl}/frases-motivacionais`)
-      .then((res) => res.json())
-      .then((data) => {
-        let frasesArr: Frase[] = [];
-        if (Array.isArray(data)) {
-          frasesArr = data;
-        } else if (data && data.frase) {
-          frasesArr = [{ autor: "Desconhecido", texto: data.frase }];
-        }
-        setFrases(frasesArr);
-        setFraseAtual(frasesArr.length > 0 ? frasesArr[0] : null);
-      })
-      .catch((err) => console.error("Falha ao buscar frases:", err))
-      .finally(() => setLoading(false));
-  }, [apiUrl]);
-
-  const mostrarNovaFrase = () => {
-    if (frases.length > 1) {
-      let novaFrase: Frase | null = null;
-      do {
-        novaFrase = frases[Math.floor(Math.random() * frases.length)];
-      } while (novaFrase === fraseAtual && frases.length > 1);
-      setFraseAtual(novaFrase);
+  const buscarFrase = async () => {
+    if (!apiUrl) {
+      setLoading(false);
+      setFraseAtual(null);
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await fetch(`${apiUrl}/frases-motivacionais`);
+      const data = await res.json();
+      let frase: Frase | null = null;
+      if (Array.isArray(data) && data.length > 0) {
+        frase = data[0];
+      } else if (data && data.frase) {
+        frase = { autor: "Desconhecido", texto: data.frase };
+      }
+      setFraseAtual(frase);
+    } catch (err) {
+      console.error("Falha ao buscar frases:", err);
+      setFraseAtual(null);
+    } finally {
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    buscarFrase();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [apiUrl]);
 
   return (
     <section
@@ -68,8 +70,8 @@ const Frases = () => {
           )}
         </div>
         <button
-          onClick={mostrarNovaFrase}
-          disabled={loading || frases.length < 2}
+          onClick={buscarFrase}
+          disabled={loading}
           className="mt-8 bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-100 hover:text-blue-800 transition-all duration-200 disabled:bg-gray-300 disabled:text-gray-500"
         >
           Gerar Nova Frase

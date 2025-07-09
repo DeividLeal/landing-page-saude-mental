@@ -56,7 +56,7 @@ const Apoio = () => {
           <LifebuoyIcon className="h-8 w-8 text-blue-400 animate-pulse" />
           Encontre Apoio Psicológico
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center mx-auto">
           {itensApoio.map((item, index) => (
             <div
               key={index}
