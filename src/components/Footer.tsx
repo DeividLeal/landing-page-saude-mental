@@ -1,4 +1,3 @@
-// components/Footer.tsx
 "use client";
 import { FaGithub, FaLinkedin } from "react-icons/fa"; // npm install react-icons
 

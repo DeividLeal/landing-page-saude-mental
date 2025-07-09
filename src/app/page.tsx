@@ -1,5 +1,3 @@
-// app/page.tsx
-
 import Frases from "../components/Frases";
 import Apoio from "../components/Apoio";
 import Autocuidado from "../components/Autocuidado";
