@@ -72,7 +72,7 @@ const Frases = () => {
         <button
           onClick={buscarFrase}
           disabled={loading}
-          className="mt-8 bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-100 hover:text-blue-800 transition-all duration-200 disabled:bg-gray-300 disabled:text-gray-500"
+          className="mt-8 bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-100 hover:text-blue-800 transition-all duration-200 disabled:bg-gray-300 disabled:text-gray-500 cursor-pointer"
         >
           Gerar Nova Frase
         </button>
